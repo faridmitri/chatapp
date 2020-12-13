@@ -9,11 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatApp">
-        <activity android:name=".Profile"></activity>
-        <activity android:name=".Forget" />
-        <activity android:name=".Sign_up" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Login">
+        <activity android:name=".MyChatActivity"></activity>
+        <activity android:name=".Profile"
+            android:theme="@style/MainTheme"/>
+        <activity android:name=".Forget"
+            android:theme="@style/MainTheme"/>
+        <activity android:name=".Sign_up"
+            android:theme="@style/MainTheme"/>
+        <activity android:name=".MainActivity"
+            android:theme="@style/MainTheme"/>
+        <activity android:name=".Login"
+            android:theme="@style/MainTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
