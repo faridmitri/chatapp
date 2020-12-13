@@ -16,19 +16,20 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Forget extends AppCompatActivity {
     private TextInputEditText editTextForget;
     private Button buttonForget;
+
     FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget);
-        
+
         editTextForget = findViewById(R.id.editTextForget);
         buttonForget = findViewById(R.id.buttonForget);
-        auth = FirebaseAuth.getInstance();
+
         buttonForget.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 String email = editTextForget.getText().toString();
                 if (!email.equals(""))
                 {
@@ -36,16 +37,15 @@ public class Forget extends AppCompatActivity {
                 }
             }
         });
-        auth = FirebaseAuth.getInstance();
 
+        auth = FirebaseAuth.getInstance();
     }
 
     public void passwordReset(String email)
     {
         auth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
-            public void onComplete(@NonNull Task<Void> task)
-            {
+            public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())
                 {
                     Toast.makeText(Forget.this, "Please check your email.", Toast.LENGTH_SHORT).show();
@@ -54,7 +54,6 @@ public class Forget extends AppCompatActivity {
                 {
                     Toast.makeText(Forget.this, "There is a problem.", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
     }
